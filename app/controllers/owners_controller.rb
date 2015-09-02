@@ -6,26 +6,26 @@ class OwnersController < ApplicationController
   def show
     @onr = nil
     @onr = Owner.find(params[:id])
-    return @onr if @onr
+    #return @onr if @onr
   end
 
   def update
-    @owner = Owner.find_by(id: params[:id])
-    if @owner.update(owner_params)
-      # redirect_to owners_path, success: "Owner with name #{params[:owner][:first_name]} #{params[:owner][:last_name]} was updated successfully"
+    @onr = Owner.find_by(id: params[:id])
+    if @onr.update(owner_params)
+      redirect_to owners_path, success: "Owner with name #{params[:owner][:first_name]} #{params[:owner][:last_name]} was updated successfully"
     else
       flash[:error] = "Owner with name #{params[:owner][:first_name]} #{params[:owner][:last_name]} was not created successfully"
-      # render 'edit'
+      render 'edit'
     end
   end
 
   def new
-    @owner = Owner.new
+    @onr = Owner.new
   end
 
   def create
-    @owner = Owner.new(owner_perams)
-    if @owner.save
+    @onr = Owner.new(owner_params)
+    if @onr.save
       redirect_to owners_path, success: "Owner with name #{params[:owner][:first_name]} #{params[:owner][:last_name]} was created successfully"
     else
       redirect_to owners_path, success: "Owner with name #{params[:owner][:first_neme]} #{params[:owner][:last_name]} was not created successfully"
@@ -33,7 +33,7 @@ class OwnersController < ApplicationController
   end
   
   def edit
-    @owner = Owner.find_by(name: params[:name])
+    @onr = Owner.find_by(id: params[:id])
   end
 
   def destroy
@@ -63,7 +63,7 @@ class OwnersController < ApplicationController
   def some_method_that_does_something(owner)
     cats = owner.cats
     cat = owner.cats.first
-    cat.age = 22
+    cat_age = 23
     cat.save
   end
 
