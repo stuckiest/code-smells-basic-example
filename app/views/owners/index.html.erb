@@ -12,6 +12,14 @@
   <tbody>
     <% @onr.each do |owner| %>
       <tr>
+        <td>First Name: <%= owner.first_name %></td>
+        <td>Last Name: <%= owner.last_name %></td>
+        <td>Age: <%= owner.age %></td>
+        <td>Race: <%= owner.race %></td>
+        <td>Location: <%= owner.location %></td>
+      </tr>
+      
+      <tr>
         <td><%= link_to 'Show', owner %></td>
         <td><%= link_to 'Edit', edit_owner_path(owner) %></td>
         <td><%= link_to 'Destroy', owner, method: :delete, data: { confirm: 'Are you sure?' } %></td>

@@ -1,10 +1,19 @@
-<%= form_for(@onr) do |f| %>
+<%= form_for @onr do |f| %>
 <div class="actions">
   <% if @onr.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@onr.errors.count, "error") %> prohibited this owner from being saved:</h2>
 
-  <%= f.lable :first_name %>
+      <ul>
+      <% @onr.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+
+ </div>
+  <% end %>
+  <%= f.label :first_name %>
   <%= f.text_field :first_name %>
   <%= f.label :last_name %>
   <%= f.text_field :last_name %>
@@ -15,13 +24,4 @@
   <%= f.label :location %>
   <%= f.text_field :location %>
   <%= f.submit %>
-      <ul>
-      <% @onr.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
- </div>
 <%end%>

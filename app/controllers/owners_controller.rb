@@ -1,6 +1,6 @@
 class OwnersController < ApplicationController
   def index
-    @onr = Owner.all.sort_by{|onr| onr.first_name }
+    @onr = Owner.all
   end
 
   def show
@@ -41,7 +41,7 @@ class OwnersController < ApplicationController
     message = nil
     success_message = ""
     error_message = ''
-    @onr = Owner.find(r)
+    @onr = Owner.find(params[:id])
     if @onr && @onr.persisted? && p
       #destroy all my cats
       @onr.cats.each do |cat|
