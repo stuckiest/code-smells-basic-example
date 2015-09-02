@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-  resources :owners
-  resources :cats
-  resources :cats
-  resources :owners
+  #resources :owners
+  #resources :cats
+  #resources :cats
+  #resources :owners
   get 'owners/index'
 
   get 'owners/show'

@@ -12,6 +12,14 @@
   <tbody>
     <% @cats.each do |cat| %>
       <tr>
+        <td>Name: <%= cat.name %></td>
+        <td>Age: <%= cat.age %></td>
+        <td>Fur Color: <%= cat.fur_color %></td>
+        <td>Eye Color: <%= cat.eye_color %></td>
+        <td>Food Type: <%= cat.food_type %></td>
+        <td>Owner: <%= cat.owner_id %></td>
+      </tr>
+      <tr>
         <td><%= link_to 'Show', cat %></td>
         <td><%= link_to 'Edit', edit_cat_path(cat) %></td>
         <td><%= link_to 'Destroy', cat, method: :delete, data: { confirm: 'Are you sure?' } %></td>
