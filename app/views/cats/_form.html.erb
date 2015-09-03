@@ -1,4 +1,14 @@
-<%= form_for(@cat) do |f| %>
+<%= form_for @cat do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.label :age %>
+  <%= f.text_field :age %>
+  <%= f.label :fur_color %>
+  <%= f.text_field :fur_color %>
+  <%= f.label :eye_color %>
+  <%= f.text_field :eye_color %>
+  <%= f.label :food_type %>
+  <%= f.text_field :food_type %>
   <div class="actions">
   <% if @cat.errors.any? %>
     <div id="error_explanation">
@@ -13,15 +23,5 @@
   </div>
 
 <% end %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <%= f.label :age %>
-  <%= f.text_field :age %>
-  <%= f.label :fur_color %>
-  <%= f.text_field :fur_color %>
-  <%= f.label :eye_color %>
-  <%= f.text_field :eye_color %>
-  <%= f.label :food_type %>
-  <%= f.text_field :food_type %>
   <%= f.submit %>
 <%end%>

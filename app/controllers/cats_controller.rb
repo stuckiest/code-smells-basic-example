@@ -1,6 +1,6 @@
 class CatsController < ApplicationController
   def index
-    @cats = Cat.all
+    @cat = Cat.all
     end
   end
 
@@ -22,6 +22,7 @@ class CatsController < ApplicationController
   end
 
   def new
+    binding.pry
     @cat = Cat.new
   end
 
@@ -57,7 +58,7 @@ class CatsController < ApplicationController
   private
     def cat_params
       if params[:cat]
-        params.require(:cats).permit(:name, :age, :fur_color, :eye_color, :food_type)
+        params.require(:cat).permit(:name, :age, :fur_color, :eye_color, :food_type)
       end
     end
 #end
